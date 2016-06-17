@@ -1,0 +1,46 @@
+---
+ip: "192.168.10.10"
+memory: 2048
+cpus: 1
+provider: virtualbox
+
+authorize: ~/.ssh/id_rsa.pub
+
+keys:
+    - ~/.ssh/id_rsa
+
+folders:
+    - map: ~/Code
+      to: /home/vagrant/Code
+
+sites:
+    - map: hello-lumen.app
+      to: /home/vagrant/Code/pruebas-php/laravel/hello-lumen/public
+    - map: bookr.app
+      to: /home/vagrant/Code/pruebas-php/laravel/bookr/public
+    - map: links.app
+      to: /home/vagrant/Code/links.app/public
+    - map: links.dev
+      to: /home/vagrant/Code/pruebas-php/laravel/links/public
+
+databases:
+    - homestead
+    - bookr
+    - bookr_testing
+    - links
+
+# blackfire:
+#     - id: foo
+#       token: bar
+#       client-id: foo
+#       client-token: bar
+
+# ports:
+#     - send: 50000
+#       to: 5000
+#     - send: 7777
+#       to: 777
+#       protocol: udp
+ports:
+    - send: 8080
+      to: 8080
